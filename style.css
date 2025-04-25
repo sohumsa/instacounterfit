@@ -1,0 +1,157 @@
+/* General Styling */
+body {
+  margin: 0;
+  background-color: #ECEBE4;
+  color: #ECEBE4;
+  font-family: 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+  height: 100vh; /* Ensure full height for parallax */
+  position: relative;
+  background-image: url('https://via.placeholder.com/1500x1000'); /* Your background image */
+  background-size: cover;
+  background-attachment: fixed; /* Parallax effect */
+  background-position: center;
+  will-change: transform; /* Smooth transformation */
+}
+
+/* Header */
+header {
+  padding: 40px 0;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: rgba(28, 28, 28);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(218, 221, 216);
+  z-index: 1000;
+}
+
+/* Logo Styling */
+.logo {
+  font-size: 2.4rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #DADDD8;
+  text-transform: uppercase;
+  position: absolute; /* Position absolute for precise placement */
+  left: 0; /* Align to the left edge */
+  top: 0; /* Align to the top edge */
+  padding: 10px; /* Add some padding if you'd like space from the edges */
+}
+.create-link {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #adb5bd;
+  text-transform: uppercase;
+  text-decoration: none; /* Remove underline */
+  position: absolute;
+  left: 330px; /* Space from the right edge */
+  top: 30px;  /* Align it with the logo vertically */
+  transition: color 0.3s ease;
+}
+
+.create-link:hover {
+  color: #f0c27b; /* Change color on hover */
+}
+
+
+
+/* Main Content */
+main {
+  padding-top: 50px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(to right, #f0c27b, #4b1248);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  color: #bbb;
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Gallery Container */
+.gallery-container {
+  top: -75px;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  height: calc((33.333vw * 16 / 9) + 2px); /* Account for gap */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1500px; /* Add perspective to enhance 3D rotation */
+}
+
+/* Gallery Track */
+.gallery-track {
+  display: flex;
+  gap: 2px; /* 2 pixel space between images */
+  width: calc(200% + 2px); /* slight extension to compensate for spacing */
+  animation: carouselScroll 40s linear infinite;
+  transform-style: preserve-3d;
+}
+
+/* Gallery Images - Reduced size */
+.gallery-track img {
+  width: calc((100vw / 4) - 2px); /* Reduce image width to fit 4 images */
+  height: calc(((100vw / 4) - 2px) * 16 / 9); /* Maintain 9:16 ratio */
+  object-fit: cover;
+  border-radius: 1rem;
+  filter: grayscale(90%) brightness(85%); /* Default grayscale for non-central images */
+  transition: filter 0.4s ease, transform 0.4s ease, scale 0.4s ease;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+  transform-origin: center center; /* Set the transform axis to the center */
+}
+
+.gallery-track img:hover {
+  filter: grayscale(0%) brightness(105%);
+  transform: scale(1.1) rotate(5deg); /* Scale up and rotate the hovered image */
+}
+
+/* Parallax Effect */
+.gallery-track:hover img {
+  transform: translateX(5px) translateY(-10px) rotate(3deg); /* Slight movement for the depth effect */
+}
+
+/* Animation for scrolling the images */
+@keyframes carouselScroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+/* Create Button Styling */
+.create-button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  background-color: #1C1C1C; /* Elegant dark color */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+.create-button:hover {
+  background-color: #f0c27b; /* Soft gradient hover effect */
+  transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+.create-button:active {
+  background-color: #d19f3d; /* Darker color when button is clicked */
+  transform: scale(1.02); /* Slight reduction when pressed */
+}
